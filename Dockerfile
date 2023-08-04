@@ -9,7 +9,8 @@ RUN npm run build
 
 
 FROM nginx
+#expose port for elastic beanstalk
 EXPOSE 80
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /home/node/app/build /usr/share/nginx/html
 #nginx starts by itself so there is no need for running any commands
 
